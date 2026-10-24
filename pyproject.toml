@@ -1,0 +1,24 @@
+[project]
+name = "leetcode"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "ty>=0.0.91",
+]
+
+[dependency-groups]
+dev = [
+    "assertpy>=1.1",
+    "pytest>=9.1.1",
+    "ruff>=0.17.2",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "src"]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-ra"                                                                                                                                                                             
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
