@@ -7,4 +7,7 @@
 # You can return the answer in any order.
 class Solution:
     def two_sum(self, nums: list[int], target: int) -> list[int]:
-        return [0, 1]
+        for i, num in enumerate(nums):
+            diff = target - num
+            if diff in nums:
+                return [i, nums.index(diff)]
