@@ -27,7 +27,10 @@ class Solution:
     ) -> ListNode | None:
         sentinel = ListNode()
         aux_node = sentinel
+        carry = 0
         for val1, val2 in zip(l1, l2):
-            aux_node.next = ListNode(val1 + val2)
+            sum = val1 + val2 + carry
+            carry = sum // 10
+            aux_node.next = ListNode(sum % 10)
             aux_node = aux_node.next
         return sentinel.next

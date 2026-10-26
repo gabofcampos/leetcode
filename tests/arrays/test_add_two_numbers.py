@@ -30,7 +30,7 @@ class TestSolution:
         [
             ([0], [0], [0]),
             ([2, 4], [3, 1], [5, 5]),
-            # ([2, 4, 3], [5, 6, 4], [7, 0, 8]),
+            ([2, 4, 3], [5, 6, 4], [7, 0, 8]),
         ],
     )
     def test_solution(self, list1, list2, expected):
