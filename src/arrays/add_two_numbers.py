@@ -19,4 +19,4 @@ class Solution:
     def addTwoNumbers(
         self, l1: ListNode | None, l2: ListNode | None
     ) -> ListNode | None:
-        pass
+        return ListNode()
