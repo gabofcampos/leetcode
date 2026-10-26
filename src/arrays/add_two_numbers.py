@@ -25,7 +25,9 @@ class Solution:
     def addTwoNumbers(
         self, l1: ListNode | None, l2: ListNode | None
     ) -> ListNode | None:
-        aux_node = ListNode()
+        sentinel = ListNode()
+        aux_node = sentinel
         for val1, val2 in zip(l1, l2):
-            aux_node.val = val1 + val2
-        return aux_node
+            aux_node.next = ListNode(val1 + val2)
+            aux_node = aux_node.next
+        return sentinel.next
