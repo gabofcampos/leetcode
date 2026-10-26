@@ -14,9 +14,18 @@ class ListNode:
         self.val = val
         self.next = next
 
+    def __iter__(self):
+        current = self
+        while current:
+            yield current.val
+            current = current.next
+
 
 class Solution:
     def addTwoNumbers(
         self, l1: ListNode | None, l2: ListNode | None
     ) -> ListNode | None:
-        return ListNode()
+        aux_node = ListNode()
+        for val1, val2 in zip(l1, l2):
+            aux_node.val = val1 + val2
+        return aux_node
