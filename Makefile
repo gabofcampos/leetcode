@@ -1,4 +1,4 @@
-.PHONY: test lint format check
+.PHONY: test lint format check new
 
 test:
 	uv run pytest -q
@@ -14,3 +14,6 @@ check:
 	uv run ruff check .
 	uv run ruff format --check .
 	uv run pytest -q
+
+new:
+	@uv run python scripts/new_problem.py $(path)
