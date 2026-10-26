@@ -16,8 +16,12 @@ def list_to_linked_list(values: list[int]) -> ListNode | None:
         return sentinel.next
 
 
-def linked_list_to_list(list_nodes: ListNode) -> list[int]:
-    pass
+def linked_list_to_list(list_node: ListNode) -> list[int]:
+    result = []
+    while list_node:
+        result.append(list_node.val)
+        list_node = list_node.next
+    return result
 
 
 class TestSolution:
