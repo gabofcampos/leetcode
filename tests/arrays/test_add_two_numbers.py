@@ -8,13 +8,12 @@ def list_to_linked_list(values: list[int]) -> ListNode | None:
     if not values:
         return None
     else:
-        sentinel = ListNode(values[0])
+        sentinel = ListNode()
         current = sentinel
-        for value in values[1:]:
-            aux_node = ListNode(value)
-            current.next = aux_node
-            current = aux_node
-        return sentinel
+        for value in values:
+            current.next = ListNode(value)
+            current = current.next
+        return sentinel.next
 
 
 def linked_list_to_list(list_nodes: ListNode) -> list[int]:
