@@ -10,6 +10,7 @@ class TestSolution:
         [
             ([[1, 2, 3]], 3),
             ([[1, 2, 3], [1, 5, 1], [3, 1, 1]], 9),
+            ([[1, 5], [2, 3], [4, 2]], 11),
         ],
     )
     def test_solution(self, matrix, expected):
