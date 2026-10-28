@@ -48,8 +48,37 @@ class Solution:
                 lose = abs(prev_col - current_col)
                 prev_col = current_col
                 max_points += gain - lose
-
         return max_points
 
+    def max_points_recursive(self, points: list[list[int]]) -> int:
+        """
+        recursive approach:
+            recursive handler: calls aux over the first row with prev_col 0
+            aux recursion: given a row and a prev_col, we iterate over each
+                of the columns in a row
+                    for each of the columns we compute the max points for that choice
+                    and call on the recursion for the following row
+                    accounting with a score and then we choose the max score over
+                    all scores in a row
+
+        complexity:
+        """
+
+        def aux(row_idx: int, prev_col: int) -> int:
+            # stop condition
+            if row_idx == len(points):
+                return 0
+
+            # iterate through all cols in row and call on recursion
+            max_points = 0
+            for col in range(len(points[row_idx])):
+                gain = points[row_idx][col]
+                lose = abs(prev_col - col) if row_idx > 0 else 0
+                score = gain - lose + aux(row_idx + 1, col)
+                max_points = max(max_points, score)
+            return max_points
+
+        return aux(0, 0)
+
     def maxPoints(self, points: list[list[int]]) -> int:
-        return self.max_points_greedy(points)
+        return self.max_points_recursive(points)
