@@ -9,6 +9,7 @@ class TestSolution:
         "matrix, expected",
         [
             ([[1, 2, 3]], 3),
+            ([[1, 2, 3], [1, 5, 1], [3, 1, 1]], 9),
         ],
     )
     def test_solution(self, matrix, expected):
