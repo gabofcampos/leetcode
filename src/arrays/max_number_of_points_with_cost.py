@@ -17,15 +17,25 @@
 #    x for x >= 0.
 #   -x for x < 0.
 class Solution:
-    # the max points will be achieved when for each row
-    # we get the max points possible
-    # and reduce to the minimum the loses
     def max_points_greedy(self, points: list[list[int]]) -> int:
         """
         greedy approach:
             let's see if max points can be achieved when for each row
             we get the max points possible
             and reduce to the minimum the loses
+
+        number of rows = n
+        number of columns = m
+
+        complexity?
+
+        we loop over every row in the matrix,
+            1. as n increases, we loop over more row → n
+            2. max() scans over each element in a row → O(m) (grows as the number of cols does)
+            3. points[row].index(gain) → O(m) (searches through m until finds idx wanted)
+            4. abs() is direct so O(1)
+            total cost per row = O(m) + O(m) + O(1) = O(2m) = O(m)
+            total cost = n·O(m) = O(m·n)
         """
         max_points = 0
         for row in range(len(points)):
